@@ -8,7 +8,7 @@ export async function GET() {
     });
     return NextResponse.json(services);
   } catch (error) {
-    console.error("Error fetching services:", error);
+    // console.error("Error fetching services:", error);
     return NextResponse.json({ error: "Failed to fetch services" }, { status: 500 });
   }
 }
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(service);
   } catch (error: any) {
-    console.error("CRITICAL ERROR creating service:", error);
+    // console.error("CRITICAL ERROR creating service:", error);
     
     if (error.code === 'P2002') {
       return NextResponse.json({ error: "Slug must be unique" }, { status: 400 });

@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     });
     return NextResponse.json(faq);
   } catch (error: any) {
-    console.error("Error creating FAQ:", error);
+    // console.error("Error creating FAQ:", error);
     if (error.code === 'P2031') {
       return NextResponse.json({ 
         error: "MongoDB Replica Set Required", 

@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     });
     return NextResponse.json(project);
   } catch (error: any) {
-    console.error("Error creating project:", error);
+    // console.error("Error creating project:", error);
     if (error.code === 'P2031') {
       return NextResponse.json({ 
         error: "MongoDB Replica Set Required", 

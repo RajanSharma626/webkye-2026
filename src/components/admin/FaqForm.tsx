@@ -78,7 +78,6 @@ export default function FaqForm({ initialData, isEditing = false }: any) {
           Cancel
         </button>
       </div>
-      </div>
 
       <Toast 
         show={toast.show} 

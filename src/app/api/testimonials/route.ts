@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     });
     return NextResponse.json(testimonial);
   } catch (error: any) {
-    console.error("Error creating testimonial:", error);
+    // console.error("Error creating testimonial:", error);
     if (error.code === 'P2031') {
       return NextResponse.json({ 
         error: "MongoDB Replica Set Required", 
