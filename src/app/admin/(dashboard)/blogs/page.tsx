@@ -51,7 +51,7 @@ export default async function AdminBlogsPage() {
                     <td className="px-8 py-6">
                       <div className="flex items-center space-x-4">
                         <div className="relative w-16 h-10 rounded-lg overflow-hidden flex-shrink-0">
-                          <Image src={blog.image} alt={blog.title} fill className="object-cover" />
+                          <Image src={blog.image} alt={blog.title} fill className="object-cover" loading="lazy" quality={65} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         </div>
                         <span className="font-bold line-clamp-1">{blog.title}</span>
                       </div>

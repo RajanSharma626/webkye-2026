@@ -35,7 +35,7 @@ export default async function AdminProjectsPage() {
           projects.map((project) => (
             <div key={project.id} className="bg-card border border-border rounded-lg overflow-hidden group">
               <div className="relative aspect-video overflow-hidden">
-                <Image src={project.image} alt={project.title} fill className="object-cover transition-transform group-hover:scale-105" />
+                <Image src={project.image} alt={project.title} fill className="object-cover transition-transform group-hover:scale-105" loading="lazy" quality={65} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
                   <Link href={`/admin/projects/edit/${project.id}`} className="p-3 bg-white rounded-full text-primary hover:bg-primary hover:text-white transition-all">
                     <Edit2 size={20} />

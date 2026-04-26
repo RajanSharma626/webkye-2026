@@ -57,6 +57,9 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
                 alt="Preview"
                 fill
                 className="object-cover"
+                loading="lazy"
+                quality={65}
+                sizes="96px"
               />
               <button
                 type="button"

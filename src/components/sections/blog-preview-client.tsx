@@ -39,6 +39,9 @@ export default function BlogPreviewClient({ blogs }: { blogs: BlogPost[] }) {
                 alt={`Cover image for ${post.title}`}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                quality={75}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="absolute top-3 left-3">
                 <span className="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-widest shadow-sm">
