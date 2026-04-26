@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Plus, Edit2, Code, Palette, Smartphone, Globe, Cloud, BarChart } from "lucide-react";
 import DeleteButton from "@/components/admin/DeleteButton";
 
+import ServiceVisibilityToggle from "@/components/admin/ServiceVisibilityToggle";
+
 const iconMap: Record<string, any> = {
   Code: <Code size={18} />,
   Palette: <Palette size={18} />,
@@ -53,8 +55,10 @@ export default async function AdminServicesPage() {
                 />
               </div>
 
-              <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-                {iconMap[service.image || "Code"]}
+              <div className="mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                  {iconMap[service.image || "Code"]}
+                </div>
               </div>
               <h3 className="text-xl font-bold mb-4">{service.title}</h3>
               <p className="text-sm text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
@@ -62,6 +66,7 @@ export default async function AdminServicesPage() {
               </p>
               <div className="pt-6 border-t border-border flex items-center justify-between text-xs font-bold text-muted-foreground uppercase tracking-widest">
                 <span>{service.features?.split(",").length || 0} Features</span>
+                <ServiceVisibilityToggle id={service.id} initialVisible={service.isVisible} />
               </div>
             </div>
           ))

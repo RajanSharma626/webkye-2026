@@ -15,22 +15,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: project.metaTitle || `${project.title} | Case Study`,
-    description: project.metaDescription || project.description,
+    description: project.metaDescription || project.description || "",
     keywords: project.metaKeywords,
     alternates: {
       canonical: `/case-studies/${slug}`,
     },
     openGraph: {
       title: project.metaTitle || project.title,
-      description: project.metaDescription || project.description,
-      url: `https://webkye.com/case-studies/${slug}`,
+      description: project.metaDescription || project.description || "",
+      url: `/case-studies/${slug}`,
       type: "article",
       images: project.image ? [project.image] : [],
     },
     twitter: {
       card: "summary_large_image",
       title: project.metaTitle || project.title,
-      description: project.metaDescription || project.description,
+      description: project.metaDescription || project.description || "",
       images: project.image ? [project.image] : [],
     },
   };

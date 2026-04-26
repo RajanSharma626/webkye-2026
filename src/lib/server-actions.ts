@@ -28,6 +28,16 @@ export async function deleteService(id: string) {
   revalidatePath("/admin/services");
 }
 
+export async function toggleServiceVisibility(id: string, isVisible: boolean) {
+  await prisma.service.update({
+    where: { id },
+    data: { isVisible },
+  });
+  revalidatePath("/admin/services");
+  revalidatePath("/services");
+  revalidatePath("/");
+}
+
 // Blogs
 export async function deleteBlog(id: string) {
   await prisma.blog.delete({ where: { id } });

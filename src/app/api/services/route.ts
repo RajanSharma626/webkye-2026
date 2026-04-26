@@ -16,7 +16,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { title, slug, shortDesc, description, image, features, metaTitle, metaDescription, metaKeywords } = body;
+    const { title, slug, shortDesc, description, image, features, isVisible, metaTitle, metaDescription, metaKeywords } = body;
 
     // Check if slug already exists
     const existing = await prisma.service.findUnique({
@@ -35,6 +35,7 @@ export async function POST(request: Request) {
         description,
         image,
         features,
+        isVisible,
         metaTitle,
         metaDescription,
         metaKeywords,

@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://webkye.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
   title: {
     default: "Webkye | Innovative Digital Solutions",
     template: "%s | Webkye",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://webkye.com",
+    url: "/",
     siteName: "Webkye",
     title: "Webkye | Innovative Digital Solutions",
     description: "Transform your business with Webkye's cutting-edge digital solutions.",
@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} font-sans min-h-screen flex flex-col`} suppressHydrationWarning>
         <AuthProvider>
           <ThemeProvider defaultTheme="system" storageKey="agency-theme">
             {children}

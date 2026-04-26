@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Our Services | Webkye Digital Solutions",
     description: "Explore our range of professional services from web development to UI/UX design.",
-    url: "https://webkye.com/services",
+    url: "/services",
     type: "website",
   },
   twitter: {
@@ -35,6 +35,7 @@ const iconMap: Record<string, any> = {
 
 export default async function ServicesPage() {
   const dbServices = await prisma.service.findMany({
+    where: { isVisible: true },
     orderBy: { createdAt: "asc" }
   });
   

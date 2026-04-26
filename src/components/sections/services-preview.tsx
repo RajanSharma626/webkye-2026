@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 export default async function ServicesPreview() {
   const dbServices = await prisma.service.findMany({
+    where: { isVisible: true },
     take: 3,
     orderBy: { createdAt: "asc" }
   });

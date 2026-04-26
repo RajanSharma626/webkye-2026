@@ -28,6 +28,7 @@ model Service {
   description String
   image       String?
   features    String? // Store as JSON string or comma-separated
+  isVisible   Boolean  @default(true)
   metaTitle   String?
   metaDescription String?
   metaKeywords    String?

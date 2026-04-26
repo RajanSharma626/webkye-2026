@@ -19,7 +19,8 @@ export default function Footer() {
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
-          setServices(data.slice(0, 5));
+          const visibleServices = data.filter((s: any) => s.isVisible !== false);
+          setServices(visibleServices.slice(0, 5));
         }
       })
       .catch(err => console.error("Error fetching footer services:", err));

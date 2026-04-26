@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: service.metaTitle || service.title,
       description: service.metaDescription || service.shortDesc || "",
-      url: `https://webkye.com/services/${slug}`,
+      url: `/services/${slug}`,
       type: "website",
       images: service.image ? [service.image] : [],
     },

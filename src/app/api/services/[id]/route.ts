@@ -29,7 +29,7 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { title, slug, shortDesc, description, image, features, metaTitle, metaDescription, metaKeywords } = body;
+    const { title, slug, shortDesc, description, image, features, isVisible, metaTitle, metaDescription, metaKeywords } = body;
 
     const service = await prisma.service.update({
       where: { id },
@@ -40,6 +40,7 @@ export async function PUT(
         description,
         image,
         features,
+        isVisible,
         metaTitle,
         metaDescription,
         metaKeywords,

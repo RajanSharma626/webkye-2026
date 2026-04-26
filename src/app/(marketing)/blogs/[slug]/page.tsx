@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
-      url: `https://webkye.com/blogs/${slug}`,
+      url: `/blogs/${slug}`,
       type: "article",
       images: post.image ? [post.image] : [],
     },
@@ -70,7 +70,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       "name": "Webkye",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://webkye.com/logo.png"
+        "url": `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/logo.png`
       }
     }
   };
@@ -145,7 +145,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
             <div className="flex items-center space-x-6 text-sm">
               <span className="font-bold text-foreground uppercase tracking-widest text-xs">Share</span>
               <a 
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://webkye.com/blogs/${post.slug}`)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/blogs/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors font-bold"
@@ -154,7 +154,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
                 Twitter
               </a>
               <a 
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://webkye.com/blogs/${post.slug}`)}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/blogs/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors font-bold"

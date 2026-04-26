@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Case Studies | Webkye Portfolio",
     description: "Discover how we solve complex business challenges with innovative digital engineering.",
-    url: "https://webkye.com/case-studies",
+    url: "/case-studies",
     type: "website",
   },
   twitter: {

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Webkye | Start Your Project",
     description: "Get in touch with our team to discuss your next digital engineering project.",
-    url: "https://webkye.com/contact-us",
+    url: "/contact-us",
     type: "website",
   },
   twitter: {
