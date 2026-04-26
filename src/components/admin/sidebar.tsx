@@ -12,7 +12,8 @@ import {
   Mail,
   HelpCircle,
   Settings,
-  Rocket
+  Rocket,
+  User
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -25,13 +26,14 @@ const menuItems = [
   { name: "Newsletter", href: "/admin/newsletter", icon: Mail },
   { name: "FAQ", href: "/admin/faq", icon: HelpCircle },
   { name: "Leads", href: "/admin/leads", icon: Users },
+  { name: "Members", href: "/admin/members", icon: Users },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 bg-card border-r border-border hidden md:flex flex-col">
+    <aside className="w-64 bg-card border-r border-border hidden md:flex flex-col sticky top-0 h-screen">
       <div className="p-6">
         <Link href="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
@@ -41,7 +43,7 @@ export default function Sidebar() {
         </Link>
       </div>
 
-      <nav className="flex-1 px-4 space-y-2 mt-4">
+      <nav className="flex-1 px-4 space-y-2 mt-4 overflow-y-auto">
         {menuItems.map((item) => {
           const isActive = item.href === "/admin" 
             ? pathname === "/admin" 
@@ -66,9 +68,21 @@ export default function Sidebar() {
 
       <div className="p-6 border-t border-border">
         <Link 
-          href="/admin/settings" 
+          href="/admin/profile" 
           className={cn(
             "flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all",
+            pathname === "/admin/profile" 
+              ? "bg-primary text-white shadow-lg shadow-primary/20" 
+              : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+          )}
+        >
+          <User size={20} />
+          <span>My Profile</span>
+        </Link>
+        <Link 
+          href="/admin/settings" 
+          className={cn(
+            "flex items-center space-x-3 px-4 py-3 mt-2 rounded-xl text-sm font-medium transition-all",
             pathname === "/admin/settings" 
               ? "bg-primary text-white shadow-lg shadow-primary/20" 
               : "text-muted-foreground hover:bg-secondary hover:text-foreground"

@@ -1,7 +1,7 @@
 import React from "react";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { Plus, Edit2, Code, Palette, Smartphone, Globe, Cloud, BarChart } from "lucide-react";
+import { Plus, Edit2, Code, Palette, Smartphone, Globe, Cloud, BarChart, Layout, ShoppingCart, Monitor, Users, Wrench, Database, ShieldCheck, Search, Megaphone, Cpu, PenTool, TrendingUp, MessageSquare, Video, Server, Zap } from "lucide-react";
 import DeleteButton from "@/components/admin/DeleteButton";
 
 import ServiceVisibilityToggle from "@/components/admin/ServiceVisibilityToggle";
@@ -13,6 +13,22 @@ const iconMap: Record<string, any> = {
   Globe: <Globe size={18} />,
   Cloud: <Cloud size={18} />,
   BarChart: <BarChart size={18} />,
+  Layout: <Layout size={18} />,
+  ShoppingCart: <ShoppingCart size={18} />,
+  Monitor: <Monitor size={18} />,
+  Users: <Users size={18} />,
+  Wrench: <Wrench size={18} />,
+  Database: <Database size={18} />,
+  ShieldCheck: <ShieldCheck size={18} />,
+  Search: <Search size={18} />,
+  Megaphone: <Megaphone size={18} />,
+  Cpu: <Cpu size={18} />,
+  PenTool: <PenTool size={18} />,
+  TrendingUp: <TrendingUp size={18} />,
+  MessageSquare: <MessageSquare size={18} />,
+  Video: <Video size={18} />,
+  Server: <Server size={18} />,
+  Zap: <Zap size={18} />,
 };
 
 export default async function AdminServicesPage() {

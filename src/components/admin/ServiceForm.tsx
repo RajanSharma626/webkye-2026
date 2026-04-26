@@ -169,6 +169,22 @@ export default function ServiceForm({ initialData, isEditing = false }: ServiceF
               <option value="Globe">Globe</option>
               <option value="Cloud">Cloud</option>
               <option value="BarChart">BarChart</option>
+              <option value="Layout">Layout (UI/UX)</option>
+              <option value="ShoppingCart">ShoppingCart (eCommerce)</option>
+              <option value="Monitor">Monitor (Website)</option>
+              <option value="Users">Users (HRMS)</option>
+              <option value="Wrench">Wrench (Maintenance)</option>
+              <option value="Database">Database (ERP)</option>
+              <option value="ShieldCheck">Shield (Security)</option>
+              <option value="Search">Search (SEO)</option>
+              <option value="Megaphone">Megaphone (Marketing)</option>
+              <option value="Cpu">CPU (AI/Hardware)</option>
+              <option value="PenTool">Pen (Graphic Design)</option>
+              <option value="TrendingUp">Chart (Growth)</option>
+              <option value="MessageSquare">Message (Consulting)</option>
+              <option value="Video">Video (Media)</option>
+              <option value="Server">Server (Hosting)</option>
+              <option value="Zap">Lightning (Performance)</option>
             </select>
           </div>
 

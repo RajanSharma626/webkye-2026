@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Palette, Smartphone, Globe, Cloud, BarChart, ArrowRight } from "lucide-react";
+import { Code, Palette, Smartphone, Globe, Cloud, BarChart, ArrowRight, Layout, ShoppingCart, Monitor, Users, Wrench, Database, ShieldCheck, Search, Megaphone, Cpu, PenTool, TrendingUp, MessageSquare, Video, Server, Zap } from "lucide-react";
 import Link from "next/link";
 
 const iconMap: Record<string, any> = {
@@ -12,6 +12,22 @@ const iconMap: Record<string, any> = {
   Globe: <Globe className="w-6 h-6 text-primary" />,
   Cloud: <Cloud className="w-6 h-6 text-primary" />,
   BarChart: <BarChart className="w-6 h-6 text-primary" />,
+  Layout: <Layout className="w-6 h-6 text-primary" />,
+  ShoppingCart: <ShoppingCart className="w-6 h-6 text-primary" />,
+  Monitor: <Monitor className="w-6 h-6 text-primary" />,
+  Users: <Users className="w-6 h-6 text-primary" />,
+  Wrench: <Wrench className="w-6 h-6 text-primary" />,
+  Database: <Database className="w-6 h-6 text-primary" />,
+  ShieldCheck: <ShieldCheck className="w-6 h-6 text-primary" />,
+  Search: <Search className="w-6 h-6 text-primary" />,
+  Megaphone: <Megaphone className="w-6 h-6 text-primary" />,
+  Cpu: <Cpu className="w-6 h-6 text-primary" />,
+  PenTool: <PenTool className="w-6 h-6 text-primary" />,
+  TrendingUp: <TrendingUp className="w-6 h-6 text-primary" />,
+  MessageSquare: <MessageSquare className="w-6 h-6 text-primary" />,
+  Video: <Video className="w-6 h-6 text-primary" />,
+  Server: <Server className="w-6 h-6 text-primary" />,
+  Zap: <Zap className="w-6 h-6 text-primary" />,
 };
 
 interface Service {
