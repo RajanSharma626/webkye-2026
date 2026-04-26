@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         metaTitle: body.metaTitle,
         metaDescription: body.metaDescription,
         metaKeywords: body.metaKeywords,
-        testimonialId: body.testimonialId || null,
+        ...(body.testimonialId ? { testimonial: { connect: { id: body.testimonialId } } } : {}),
       },
     });
     return NextResponse.json(project);
