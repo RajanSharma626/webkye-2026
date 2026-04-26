@@ -29,7 +29,9 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
         metaTitle: body.metaTitle,
         metaDescription: body.metaDescription,
         metaKeywords: body.metaKeywords,
-        testimonialId: body.testimonialId || null,
+        testimonial: body.testimonialId 
+          ? { connect: { id: body.testimonialId } } 
+          : { disconnect: true },
       },
     });
     return NextResponse.json(project);

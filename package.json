@@ -28,6 +28,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/bcrypt": "^6.0.0",
+    "@types/ckeditor__ckeditor5-build-classic": "^29.0.1",
     "@types/estree": "^1.0.8",
     "@types/node": "^20",
     "@types/react": "^19",

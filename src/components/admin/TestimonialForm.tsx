@@ -104,7 +104,6 @@ export default function TestimonialForm({ initialData, projects = [], isEditing 
           Cancel
         </button>
       </div>
-      </div>
 
       <Toast 
         show={toast.show} 
