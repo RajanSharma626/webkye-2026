@@ -12,6 +12,7 @@
     "@ckeditor/ckeditor5-build-classic": "^41.4.2",
     "@ckeditor/ckeditor5-react": "^11.1.2",
     "@prisma/client": "^6.19.3",
+    "@tailwindcss/typography": "^0.5.19",
     "bcrypt": "^6.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",

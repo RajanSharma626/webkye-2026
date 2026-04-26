@@ -51,6 +51,22 @@ export default function Editor({ value, onChange, placeholder }: {
         .ck-content {
           color: hsl(var(--foreground)) !important;
         }
+        .ck-content ul {
+          list-style-type: disc !important;
+          padding-left: 2rem !important;
+          margin-top: 0.5rem !important;
+          margin-bottom: 0.5rem !important;
+        }
+        .ck-content ol {
+          list-style-type: decimal !important;
+          padding-left: 2rem !important;
+          margin-top: 0.5rem !important;
+          margin-bottom: 0.5rem !important;
+        }
+        .ck-content li {
+          margin-bottom: 0.25rem !important;
+          display: list-item !important;
+        }
         .ck-toolbar__items {
           background-color: var(--secondary) !important;
         }

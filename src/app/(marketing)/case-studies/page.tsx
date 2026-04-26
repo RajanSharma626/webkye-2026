@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
+import Pagination from "@/components/ui/pagination";
 import CaseStudyCard from "@/components/ui/case-study-card";
 
 export const metadata: Metadata = {
@@ -25,10 +26,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function CaseStudiesPage() {
-  const projects = await prisma.project.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+export default async function CaseStudiesPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const resolvedSearchParams = await searchParams;
+  const pageParam = typeof resolvedSearchParams.page === "string" ? parseInt(resolvedSearchParams.page, 10) : 1;
+  const currentPage = !isNaN(pageParam) && pageParam > 0 ? pageParam : 1;
+  const itemsPerPage = 6;
+
+  const [projects, totalProjects] = await Promise.all([
+    prisma.project.findMany({
+      orderBy: { createdAt: "desc" },
+      skip: (currentPage - 1) * itemsPerPage,
+      take: itemsPerPage,
+    }),
+    prisma.project.count()
+  ]);
+
+  const totalPages = Math.ceil(totalProjects / itemsPerPage);
 
   return (
     <main className="py-20 md:py-28 bg-background">
@@ -47,6 +60,12 @@ export default async function CaseStudiesPage() {
             <CaseStudyCard key={project.id} project={project as any} index={index} />
           ))}
         </div>
+
+        <Pagination 
+          currentPage={currentPage} 
+          totalPages={totalPages} 
+          baseUrl="/case-studies" 
+        />
       </div>
     </main>
   );

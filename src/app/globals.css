@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -110,6 +111,33 @@
   }
   .card-professional {
     @apply rounded-lg border border-border bg-card p-6 shadow-sm hover:shadow-md transition-shadow;
+  }
+  
+  /* Fallback and explicit list styles for prose content */
+  .prose ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .prose ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .prose li {
+    margin-bottom: 0.5rem;
+    display: list-item;
+  }
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+    font-weight: 600;
+  }
+  .prose p {
+    margin-bottom: 1rem;
   }
 }
 

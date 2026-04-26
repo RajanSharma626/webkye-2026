@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import Pagination from "@/components/ui/pagination";
 import { formatDate } from "@/lib/utils";
 import { Calendar, User, ArrowRight } from "lucide-react";
 
@@ -25,10 +26,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function BlogPage() {
-  const blogs = await prisma.blog.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+export default async function BlogPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const resolvedSearchParams = await searchParams;
+  const pageParam = typeof resolvedSearchParams.page === "string" ? parseInt(resolvedSearchParams.page, 10) : 1;
+  const currentPage = !isNaN(pageParam) && pageParam > 0 ? pageParam : 1;
+  const itemsPerPage = 6;
+
+  const [blogs, totalBlogs] = await Promise.all([
+    prisma.blog.findMany({
+      orderBy: { createdAt: "desc" },
+      skip: (currentPage - 1) * itemsPerPage,
+      take: itemsPerPage,
+    }),
+    prisma.blog.count()
+  ]);
+
+  const totalPages = Math.ceil(totalBlogs / itemsPerPage);
 
   return (
     <main className="py-20 md:py-28 bg-background">
@@ -92,6 +105,12 @@ export default async function BlogPage() {
           </article>
           ))}
         </div>
+
+        <Pagination 
+          currentPage={currentPage} 
+          totalPages={totalPages} 
+          baseUrl="/blogs" 
+        />
       </div>
     </main>
   );
