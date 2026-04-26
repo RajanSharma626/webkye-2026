@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fintech-dashboard",
+    "title": "FinTech Dashboard",
+    "category": "Web App",
+    "description": "A comprehensive financial dashboard for real-time tracking.",
+    "image": "/projects/fintech.jpg",
+    "tags": ["Next.js", "Tailwind", "D3.js"]
+  },
+  {
+    "id": "ecommerce-platform",
+    "title": "E-commerce Platform",
+    "category": "E-commerce",
+    "description": "A high-conversion online store with seamless checkout.",
+    "image": "/projects/ecommerce.jpg",
+    "tags": ["Shopify", "React", "Node.js"]
+  },
+  {
+    "id": "ai-content-tool",
+    "title": "AI Content Tool",
+    "category": "AI/ML",
+    "description": "Leveraging LLMs to automate content creation workflows.",
+    "image": "/projects/ai-tool.jpg",
+    "tags": ["Python", "OpenAI", "Next.js"]
+  }
+]

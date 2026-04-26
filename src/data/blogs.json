@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "future-of-web-development",
+    "title": "The Future of Web Development in 2026",
+    "excerpt": "Exploring the latest trends in web technologies, from AI-driven coding to the evolution of React.",
+    "date": "2026-04-15",
+    "author": "Alex Rivera",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
+    "category": "Technology"
+  },
+  {
+    "slug": "designing-for-dark-mode",
+    "title": "Designing for Dark Mode: Best Practices",
+    "excerpt": "Learn how to create stunning dark mode interfaces that are both beautiful and accessible.",
+    "date": "2026-04-10",
+    "author": "Sarah Miller",
+    "image": "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=800&auto=format&fit=crop",
+    "category": "Design"
+  },
+  {
+    "slug": "maximizing-nextjs-performance",
+    "title": "Maximizing Performance in Next.js 15",
+    "excerpt": "A deep dive into the latest performance optimization techniques for Next.js App Router.",
+    "date": "2026-04-05",
+    "author": "David Chen",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+    "category": "Development"
+  }
+]

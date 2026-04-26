@@ -1,0 +1,23 @@
+[
+  {
+    "id": "web-development",
+    "title": "Web Development",
+    "description": "High-performance, scalable web applications built with the latest technologies.",
+    "icon": "Code",
+    "features": ["Next.js & React", "TypeScript", "Performance Optimization", "Scalable Architecture"]
+  },
+  {
+    "id": "ui-ux-design",
+    "title": "UI/UX Design",
+    "description": "Beautiful, intuitive designs that prioritize user experience and brand identity.",
+    "icon": "Palette",
+    "features": ["User Research", "Wireframing", "Prototyping", "Design Systems"]
+  },
+  {
+    "id": "mobile-apps",
+    "title": "Mobile Apps",
+    "description": "Native and cross-platform mobile solutions for iOS and Android.",
+    "icon": "Smartphone",
+    "features": ["React Native", "iOS/Android", "Offline Support", "App Store Optimization"]
+  }
+]

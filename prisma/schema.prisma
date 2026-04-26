@@ -1,0 +1,125 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String    @unique
+  password      String
+  role          String    @default("admin")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Service {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String   @unique
+  shortDesc   String?
+  description String
+  image       String?
+  features    String? // Store as JSON string or comma-separated
+  metaTitle   String?
+  metaDescription String?
+  metaKeywords    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String   @unique
+  category    String
+  description String?
+  content     String?
+  image       String
+  tags        String? // Comma-separated
+  metaTitle   String?
+  metaDescription String?
+  metaKeywords    String?
+  testimonial Testimonial?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Blog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  slug      String   @unique
+  excerpt   String
+  content   String
+  author    String
+  image     String
+  category  String
+  date      DateTime @default(now())
+  metaTitle   String?
+  metaDescription String?
+  metaKeywords    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lead {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  subject   String?
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model Testimonial {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  author    String
+  role      String
+  image     String?
+  projectId String?   @unique @db.ObjectId
+  project   Project?  @relation(fields: [projectId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Newsletter {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model Faq {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  question  String
+  answer    String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Setting {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  email       String?
+  phone       String?
+  address     String?
+  twitter     String?
+  facebook    String?
+  instagram   String?
+  linkedin    String?
+  whatsapp    String?
+  footerText  String?
+  updatedAt   DateTime @updatedAt
+}
+
+
+
+
+
