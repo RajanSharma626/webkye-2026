@@ -64,7 +64,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-secondary/50 border border-border rounded-xl pl-12 pr-6 py-4 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                  placeholder="admin@webkye.com"
+                  placeholder="admin@webkye.in"
                 />
               </div>
             </div>

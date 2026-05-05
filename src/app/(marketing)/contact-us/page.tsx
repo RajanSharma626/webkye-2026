@@ -72,7 +72,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-foreground">Email</p>
-                  <p className="text-base text-muted-foreground">{settings?.email || "hello@webkye.com"}</p>
+                  <p className="text-base text-muted-foreground">{settings?.email || "info@webkye.in"}</p>
                 </div>
               </div>
               
@@ -82,7 +82,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-foreground">WhatsApp</p>
-                  <p className="text-base text-muted-foreground">{settings?.whatsapp || "+91 9310468455"}</p>
+                  <p className="text-base text-muted-foreground">{settings?.whatsapp || "+919310498455"}</p>
                 </div>
               </div>
 
@@ -92,7 +92,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-foreground">Location</p>
-                  <p className="text-base text-muted-foreground">{settings?.address || "123 Innovation Way, Tech City, TC 12345"}</p>
+                  <p className="text-base text-muted-foreground">{settings?.address || "New Delhi, India"}</p>
                 </div>
               </div>
             </div>

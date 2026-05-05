@@ -8,9 +8,9 @@ export async function GET() {
       // Create default settings if none exist
       settings = await prisma.setting.create({
         data: {
-          email: "hello@webkye.com",
-          phone: "+1 (555) 000-0000",
-          address: "123 Innovation Way, Tech City, TC 12345",
+          email: "info@webkye.in",
+          phone: "+91 9310498455",
+          address: "New Delhi, India",
           twitter: "#",
           facebook: "#",
           instagram: "#",
