@@ -10,7 +10,9 @@ export default function CKEditorContent({ value, onChange, placeholder }: any) {
     // and the react component. This avoids the duplicated modules error
     // caused by mixing ESM modules in Next.js/Turbopack.
     Promise.all([
+      // @ts-ignore: Legacy version lacks type definitions but works fine
       import("@ckeditor/ckeditor5-react"),
+      // @ts-ignore: Same for classic build
       import("@ckeditor/ckeditor5-build-classic")
     ]).then(([ckReact, ck5]) => {
       setComponent({

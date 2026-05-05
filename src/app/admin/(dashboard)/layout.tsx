@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   },
 };
 
+import GlobalToast from "@/components/admin/GlobalToast";
+
 export default function AdminLayout({
   children,
 }: {
@@ -18,11 +20,12 @@ export default function AdminLayout({
   return (
     <div className="flex min-h-screen bg-secondary/30">
       <Sidebar />
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 relative">
         <Topbar />
         <main className="p-8 flex-grow">
           {children}
         </main>
+        <GlobalToast />
       </div>
     </div>
   );

@@ -35,11 +35,10 @@ export default function FaqForm({ initialData, isEditing = false }: any) {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
-        setToast({ show: true, message: isEditing ? "FAQ updated!" : "FAQ created!", type: "success" });
+        sessionStorage.setItem("pendingToastMessage", isEditing ? "FAQ updated!" : "FAQ created!");
+        sessionStorage.setItem("pendingToastType", "success");
         router.refresh();
-        setTimeout(() => {
-          router.push("/admin/faq");
-        }, 1500);
+        router.push("/admin/faq");
       } else {
         const errorData = await res.json();
         setToast({ show: true, message: errorData.error || "Failed to save FAQ", type: "error" });
@@ -53,9 +52,10 @@ export default function FaqForm({ initialData, isEditing = false }: any) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-lg p-6 shadow-sm w-full max-w-full">
-      <div className="space-y-5">
-        <div className="space-y-2">
+    <>
+      <form onSubmit={handleSubmit} className={`space-y-6 bg-card border border-border rounded-lg p-6 shadow-sm w-full max-w-full transition-all duration-300 ${loading ? "opacity-50 pointer-events-none" : ""}`}>
+        <div className="space-y-5">
+          <div className="space-y-2">
           <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground ml-1">Question</label>
           <input type="text" name="question" value={formData.question} onChange={handleChange} required placeholder="FAQ Question" className="input-field h-11" />
         </div>
@@ -86,5 +86,6 @@ export default function FaqForm({ initialData, isEditing = false }: any) {
         onClose={() => setToast({ ...toast, show: false })} 
       />
     </form>
+    </>
   );
 }

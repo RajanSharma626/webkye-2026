@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^28.0.0",
-    "@ckeditor/ckeditor5-react": "^11.1.2",
+    "@ckeditor/ckeditor5-react": "^3.0.3",
     "@prisma/client": "^6.19.3",
     "@tailwindcss/typography": "^0.5.19",
     "bcrypt": "^6.0.0",

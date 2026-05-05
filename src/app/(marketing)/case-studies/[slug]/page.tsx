@@ -84,6 +84,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                 priority
                 quality={85}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                unoptimized
               />
             </div>
           </header>
@@ -124,6 +125,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                             loading="lazy"
                             quality={65}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            unoptimized
                           />
                         </div>
                       ) : (

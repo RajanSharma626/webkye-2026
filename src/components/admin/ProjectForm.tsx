@@ -77,11 +77,10 @@ export default function ProjectForm({ initialData, isEditing = false }: any) {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
-        setToast({ show: true, message: isEditing ? "Project updated successfully!" : "Project created successfully!", type: "success" });
+        sessionStorage.setItem("pendingToastMessage", isEditing ? "Project updated successfully!" : "Project created successfully!");
+        sessionStorage.setItem("pendingToastType", "success");
         router.refresh();
-        setTimeout(() => {
-          router.push("/admin/projects");
-        }, 1500);
+        router.push("/admin/projects");
       } else {
         const errorData = await res.json();
         setToast({ show: true, message: errorData.error || "Failed to save project", type: "error" });
@@ -96,7 +95,7 @@ export default function ProjectForm({ initialData, isEditing = false }: any) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-lg p-6 shadow-sm w-full max-w-full">
+      <form onSubmit={handleSubmit} className={`space-y-6 bg-card border border-border rounded-lg p-6 shadow-sm w-full max-w-full transition-all duration-300 ${loading ? "opacity-50 pointer-events-none" : ""}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground ml-1">Project Title</label>

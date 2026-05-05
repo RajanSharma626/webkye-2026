@@ -51,6 +51,7 @@ export const metadata: Metadata = {
 
 import { AuthProvider } from "@/components/session-provider";
 import WhatsAppCTA from "@/components/ui/whatsapp-cta";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -59,6 +60,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-19FK0Y4N3M" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-19FK0Y4N3M');
+          `}
+        </Script>
+      </head>
       <body className={`${inter.variable} font-sans min-h-screen flex flex-col`} suppressHydrationWarning>
         <AuthProvider>
           <ThemeProvider defaultTheme="system" storageKey="agency-theme">

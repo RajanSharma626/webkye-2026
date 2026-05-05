@@ -72,6 +72,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
                   loading="lazy"
                   quality={75}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  unoptimized
                 />
                 <div className="absolute top-3 left-3">
                   <span className="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-widest shadow-sm">

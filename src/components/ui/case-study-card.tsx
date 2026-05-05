@@ -46,6 +46,7 @@ export default function CaseStudyCard({ project, index = 0, className }: CaseStu
             loading="lazy"
             quality={75}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            unoptimized
           />
           
           {/* Subtle Overlay Gradient */}

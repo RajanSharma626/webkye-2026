@@ -60,6 +60,7 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
                 loading="lazy"
                 quality={65}
                 sizes="96px"
+                unoptimized
               />
               <button
                 type="button"

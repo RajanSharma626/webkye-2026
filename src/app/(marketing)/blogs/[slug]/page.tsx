@@ -128,6 +128,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
                   itemProp="image"
                   quality={85}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  unoptimized
                 />
               </div>
             )}

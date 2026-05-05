@@ -38,11 +38,10 @@ export default function TestimonialForm({ initialData, projects = [], isEditing 
         body: JSON.stringify(formData),
       });
       if (res.ok) {
-        setToast({ show: true, message: isEditing ? "Testimonial updated!" : "Testimonial created!", type: "success" });
+        sessionStorage.setItem("pendingToastMessage", isEditing ? "Testimonial updated!" : "Testimonial created!");
+        sessionStorage.setItem("pendingToastType", "success");
         router.refresh();
-        setTimeout(() => {
-          router.push("/admin/testimonials");
-        }, 1500);
+        router.push("/admin/testimonials");
       } else {
         const errorData = await res.json();
         setToast({ show: true, message: errorData.error || "Failed to save testimonial", type: "error" });
@@ -56,8 +55,9 @@ export default function TestimonialForm({ initialData, projects = [], isEditing 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-lg p-6 shadow-sm w-full max-w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <>
+      <form onSubmit={handleSubmit} className={`space-y-6 bg-card border border-border rounded-lg p-6 shadow-sm w-full max-w-full transition-all duration-300 ${loading ? "opacity-50 pointer-events-none" : ""}`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2 md:col-span-2">
           <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground ml-1">Testimonial Content</label>
           <textarea name="content" value={formData.content} onChange={handleChange} required rows={3} placeholder="Client feedback..." className="input-field h-auto py-2 resize-none italic" />
@@ -112,5 +112,6 @@ export default function TestimonialForm({ initialData, projects = [], isEditing 
         onClose={() => setToast({ ...toast, show: false })} 
       />
     </form>
+    </>
   );
 }
