@@ -5,6 +5,8 @@ import { Plus, Edit2, Calendar, User, Tag } from "lucide-react";
 import DeleteButton from "@/components/admin/DeleteButton";
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminBlogsPage() {
   const blogs = await prisma.blog.findMany({
     orderBy: { createdAt: "desc" },
@@ -97,4 +99,3 @@ export default async function AdminBlogsPage() {
     </div>
   );
 }
-

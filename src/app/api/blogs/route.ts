@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 
 export async function GET() {
@@ -7,7 +8,7 @@ export async function GET() {
       orderBy: { createdAt: "desc" },
     });
     return NextResponse.json(blogs);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to fetch blogs" }, { status: 500 });
   }
 }
@@ -29,10 +30,12 @@ export async function POST(request: Request) {
         metaKeywords: body.metaKeywords,
       },
     });
+    revalidatePath("/admin/blogs");
+    revalidatePath("/blogs");
     return NextResponse.json(blog);
-  } catch (error: any) {
+  } catch (error: unknown) {
     // console.error("Error creating blog:", error);
-    if (error.code === 'P2031') {
+    if (typeof error === "object" && error !== null && "code" in error && (error as { code?: string }).code === "P2031") {
       return NextResponse.json({ 
         error: "MongoDB Replica Set Required", 
         details: "Prisma requires MongoDB to run as a replica set for transactions." 

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -7,7 +8,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     const blog = await prisma.blog.findUnique({ where: { id } });
     if (!blog) return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     return NextResponse.json(blog);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to fetch blog" }, { status: 500 });
   }
 }
@@ -31,8 +32,11 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
         metaKeywords: body.metaKeywords,
       },
     });
+    revalidatePath("/admin/blogs");
+    revalidatePath("/blogs");
+    revalidatePath(`/blogs/${blog.slug}`);
     return NextResponse.json(blog);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to update blog" }, { status: 500 });
   }
 }
@@ -40,9 +44,12 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
 export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params;
-    await prisma.blog.delete({ where: { id } });
+    const blog = await prisma.blog.delete({ where: { id } });
+    revalidatePath("/admin/blogs");
+    revalidatePath("/blogs");
+    revalidatePath(`/blogs/${blog.slug}`);
     return NextResponse.json({ message: "Blog deleted" });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to delete blog" }, { status: 500 });
   }
 }

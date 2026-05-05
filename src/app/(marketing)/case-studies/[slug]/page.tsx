@@ -36,13 +36,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export async function generateStaticParams() {
-  const projects = await prisma.project.findMany({ select: { slug: true } });
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
 export default async function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = await prisma.project.findUnique({ 
@@ -112,7 +105,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                   <div className="relative z-10">
                     <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-8">Client Testimonial</h3>
                     <blockquote className="text-base md:text-lg font-medium text-foreground italic mb-10 leading-relaxed">
-                      "{project.testimonial.content}"
+                      &ldquo;{project.testimonial.content}&rdquo;
                     </blockquote>
                     <div className="flex items-center gap-4">
                       {project.testimonial.image ? (

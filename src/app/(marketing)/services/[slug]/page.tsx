@@ -35,16 +35,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export async function generateStaticParams() {
-  const services = await prisma.service.findMany({
-    select: { slug: true }
-  });
-  
-  return services.map((service) => ({
-    slug: service.slug,
-  }));
-}
-
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   

@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Sidebar from "@/components/admin/sidebar";
 import Topbar from "@/components/admin/topbar";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Admin Dashboard | Webkye",
   robots: {

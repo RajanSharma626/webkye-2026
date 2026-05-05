@@ -6,7 +6,7 @@ import Link from "next/link";
 import CTA from "@/components/sections/cta";
 import { formatDate } from "@/lib/utils";
 import { Metadata } from "next";
-import { Calendar, User, ArrowLeft } from "lucide-react";
+import { Calendar, ArrowLeft } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -35,13 +35,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: post.image ? [post.image] : [],
     },
   };
-}
-
-export async function generateStaticParams() {
-  const blogs = await prisma.blog.findMany({ select: { slug: true } });
-  return blogs.map((post) => ({
-    slug: post.slug,
-  }));
 }
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
