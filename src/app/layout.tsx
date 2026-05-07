@@ -61,14 +61,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-19FK0Y4N3M" strategy="afterInteractive" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-V3BFJVRHB7" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-19FK0Y4N3M');
+            gtag('config', 'G-V3BFJVRHB7');
           `}
         </Script>
       </head>
