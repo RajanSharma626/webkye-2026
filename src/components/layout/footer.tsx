@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Rocket, Linkedin, Facebook, Instagram } from "lucide-react";
+import { Linkedin, Facebook, Instagram } from "lucide-react";
+import Image from "next/image";
 import { XLogo, WhatsAppIcon } from "@/components/ui/icons";
 import { subscribeToNewsletter } from "@/lib/server-actions";
 
@@ -49,10 +50,21 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           <div className="space-y-6">
-            <Link href="/" className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-                <Rocket className="text-white w-4 h-4" />
-              </div>
+            <Link href="/" className="flex items-center space-x-1 group">
+              <Image
+                src="/logo/webkye.png"
+                alt="Webkye Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain dark:hidden"
+              />
+              <Image
+                src="/logo/webkye-dark.png"
+                alt="Webkye Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain hidden dark:block"
+              />
               <span className="text-xl font-bold tracking-tight text-foreground">Web<span className="text-primary">kye</span></span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">

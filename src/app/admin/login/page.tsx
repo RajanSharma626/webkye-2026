@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Rocket, Lock, Mail, Loader2 } from "lucide-react";
+import Image from "next/image";
+import { Lock, Mail, Loader2 } from "lucide-react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -40,8 +41,21 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-secondary/30 px-6">
       <div className="max-w-md w-full">
         <div className="text-center mb-10">
-          <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-6">
-            <Rocket className="text-primary-foreground w-10 h-10" />
+          <div className="mx-auto mb-6 flex justify-center">
+            <Image
+              src="/logo/webkye.png"
+              alt="Webkye Logo"
+              width={64}
+              height={64}
+              className="w-16 h-16 object-contain dark:hidden"
+            />
+            <Image
+              src="/logo/webkye-dark.png"
+              alt="Webkye Logo"
+              width={64}
+              height={64}
+              className="w-16 h-16 object-contain hidden dark:block"
+            />
           </div>
           <h1 className="text-3xl font-bold">Admin Login</h1>
           <p className="text-muted-foreground mt-2">Enter your credentials to access the dashboard</p>

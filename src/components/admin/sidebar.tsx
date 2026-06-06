@@ -12,9 +12,9 @@ import {
   Mail,
   HelpCircle,
   Settings,
-  Rocket,
   User
 } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
@@ -35,10 +35,21 @@ export default function Sidebar() {
   return (
     <aside className="w-64 bg-card border-r border-border hidden md:flex flex-col sticky top-0 h-screen">
       <div className="p-6">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <Rocket className="text-primary-foreground w-5 h-5" />
-          </div>
+        <Link href="/" className="flex items-center space-x-1 group">
+          <Image
+            src="/logo/webkye.png"
+            alt="Webkye Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain dark:hidden"
+          />
+          <Image
+            src="/logo/webkye-dark.png"
+            alt="Webkye Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain hidden dark:block"
+          />
           <span className="text-xl font-bold tracking-tight">Webkye Admin</span>
         </Link>
       </div>
