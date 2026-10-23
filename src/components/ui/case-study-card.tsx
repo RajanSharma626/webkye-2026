@@ -31,8 +31,8 @@ export default function CaseStudyCard({ project, index = 0, className }: CaseStu
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={cn("group relative flex flex-col", className)}
     >
-      <Link 
-        href={`/case-studies/${project.slug}`} 
+      <Link
+        href={`/case-studies/${project.slug}`}
         className="block relative h-full"
         aria-label={`View details for ${project.title}`}
       >
@@ -48,10 +48,10 @@ export default function CaseStudyCard({ project, index = 0, className }: CaseStu
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             unoptimized
           />
-          
+
           {/* Subtle Overlay Gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          
+
           {/* Floating Category Badge */}
           <div className="absolute top-4 left-4 z-10">
             <span className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white bg-primary/90 backdrop-blur-md rounded-full shadow-lg transform -translate-y-1 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
@@ -69,7 +69,7 @@ export default function CaseStudyCard({ project, index = 0, className }: CaseStu
 
         <div className="mt-6 space-y-3 px-1">
           <div className="flex items-center justify-between gap-4">
-             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
               {project.category}
             </span>
             <div className="h-px flex-1 bg-border group-hover:bg-primary/30 transition-colors" />

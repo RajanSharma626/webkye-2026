@@ -17,6 +17,13 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // Client-side file size check (4.5MB max for Vercel Serverless payload)
+    if (file.size > 4.5 * 1024 * 1024) {
+      alert(`File size exceeds 4.5MB (selected file is ${(file.size / (1024 * 1024)).toFixed(2)}MB). Please choose a smaller image.`);
+      e.target.value = "";
+      return;
+    }
+
     setUploading(true);
     const formData = new FormData();
     formData.append("file", file);
@@ -27,17 +34,19 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
         body: formData,
       });
 
-      if (res.ok) {
-        const data = await res.json();
+      const data = await res.json().catch(() => null);
+
+      if (res.ok && data?.url) {
         onChange(data.url);
       } else {
-        alert("Upload failed");
+        alert(data?.error || "Upload failed. Please check your Vercel Blob configuration.");
       }
     } catch (error) {
       console.error("Upload error:", error);
-      alert("Something went wrong while uploading");
+      alert("Something went wrong while uploading. Please check your connection and try again.");
     } finally {
       setUploading(false);
+      e.target.value = "";
     }
   };
 
